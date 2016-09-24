@@ -1,0 +1,38 @@
+/*C21*/SET SCHEMA PUBLIC
+drop table configuration if exists
+drop table temp_log if exists
+drop table temp_log_temp_log_entries if exists
+drop table temp_log_entry if exists
+create table configuration (device_id varchar(255) not null, cook_duration integer, temp_scale varchar(255), temp_value double, time_stamp timestamp, primary key (device_id))
+create table temp_log_temp_log_entries (temp_log_id varchar(255) not null, temp_log_entries_id varchar(255) not null)
+create table temp_log_entry (id varchar(255) not null, temp_scale varchar(255), temp_value double, time_stamp integer, primary key (id))
+alter table temp_log_temp_log_entries add constraint UK_2cjsvi8tpx5mlkw43p4h0j3k1 unique (temp_log_entries_id)
+alter table temp_log_temp_log_entries add constraint FK2xvvww4lr6fsp7u2kafke12wr foreign key (temp_log_entries_id) references temp_log_entry
+INSERT INTO CONFIGURATION VALUES('1',90,'c',135.0E0,'2016-09-24 09:16:57.768000')
+INSERT INTO CONFIGURATION VALUES('2',90,'c',134.6E0,'2016-09-24 09:16:57.768000')
+INSERT INTO CONFIGURATION VALUES('3',90,'c',133.9E0,'2016-09-24 09:16:57.768000')
+COMMIT
+alter table temp_log_temp_log_entries drop constraint FK2xvvww4lr6fsp7u2kafke12wr
+drop table configuration if exists
+drop table temp_log if exists
+drop table temp_log_temp_log_entries if exists
+drop table temp_log_entry if exists
+DISCONNECT
+/*C20*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C17*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C15*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C12*/SET SCHEMA PUBLIC
+DISCONNECT
