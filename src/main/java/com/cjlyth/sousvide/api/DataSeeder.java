@@ -9,21 +9,21 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.cjlyth.sousvide.api.dao.ConfigurationDao;
-import com.cjlyth.sousvide.api.dao.TempLogDao;
+import com.cjlyth.sousvide.api.dao.LogEntryDao;
 import com.cjlyth.sousvide.api.entity.Configuration;
-import com.cjlyth.sousvide.api.entity.TempLog;
+import com.cjlyth.sousvide.api.entity.LogEntry;
 
 @Component
 public class DataSeeder implements CommandLineRunner{
 
 	private ConfigurationDao configurationDao;
-	private TempLogDao tempLogDao;
+	private LogEntryDao logEntryDao;
 	
 	
 	@Autowired
-	public DataSeeder(ConfigurationDao configurationDao, TempLogDao tempLogDao) {
+	public DataSeeder(ConfigurationDao configurationDao, LogEntryDao logEntryDao) {
 		this.configurationDao = configurationDao;
-		this.tempLogDao = tempLogDao;
+		this.logEntryDao = logEntryDao;
 		
 	}
 
@@ -36,18 +36,15 @@ public class DataSeeder implements CommandLineRunner{
 		configurations.add(new Configuration("3",133.9, "c", new Date(), 90));
 		
 		configurationDao.save(configurations);
-		
-		//tempLogDao.save(getTempLogs());
+
+		logEntryDao.save(getTempLogs());
 		//tempLogEntryDao.save(getTempLogEntries());
 //		tempLogDao.save(getTempLogs());
 	}
 	
-	private List<TempLog> getTempLogs() {
-		List<TempLog> tempLogs = new ArrayList<>();
-		Date date = new Date();
-		
-		tempLogs.add(new TempLog(1,"c",105.2,new Date()));
-		
-		return tempLogs;
+	private List<LogEntry> getTempLogs() {
+		List<LogEntry> logEntries = new ArrayList<>();
+		logEntries.add(new LogEntry(System.currentTimeMillis(), 60.0));
+		return logEntries;
 	}
 }

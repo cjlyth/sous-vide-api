@@ -1,11 +1,32 @@
 /*C21*/SET SCHEMA PUBLIC
 drop table configuration if exists
-drop table hibernate_sequences if exists
-create table configuration (device_id varchar(255) not null, duration integer, running boolean not null, scale varchar(255), start_time timestamp, temperature double, primary key (device_id))
-create table hibernate_sequences (sequence_name varchar(255) not null, sequence_next_hi_value bigint, primary key (sequence_name))
-INSERT INTO CONFIGURATION VALUES('1',90,FALSE,'c','2016-09-24 15:59:43.046000',135.0E0)
-INSERT INTO CONFIGURATION VALUES('2',90,FALSE,'c','2016-09-24 15:59:43.046000',134.6E0)
-INSERT INTO CONFIGURATION VALUES('3',90,FALSE,'c','2016-09-24 15:59:43.046000',133.9E0)
+drop table log_entry if exists
+create table configuration (device_id varchar(255) not null, duration integer, running boolean not null, start_time timestamp, temperature double, primary key (device_id))
+create table log_entry (timestamp bigint not null, temperature double, primary key (timestamp))
+INSERT INTO CONFIGURATION VALUES('1',90,FALSE,'2016-09-24 16:39:33.709000',135.0E0)
+INSERT INTO CONFIGURATION VALUES('2',90,FALSE,'2016-09-24 16:39:33.709000',134.6E0)
+INSERT INTO CONFIGURATION VALUES('3',90,FALSE,'2016-09-24 16:39:33.709000',133.9E0)
 COMMIT
-DELETE FROM CONFIGURATION WHERE DEVICE_ID='1'
+INSERT INTO LOG_ENTRY VALUES(1474753173752,60.0E0)
 COMMIT
+drop table configuration if exists
+drop table log_entry if exists
+DISCONNECT
+/*C20*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C17*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C15*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C12*/SET SCHEMA PUBLIC
+DISCONNECT

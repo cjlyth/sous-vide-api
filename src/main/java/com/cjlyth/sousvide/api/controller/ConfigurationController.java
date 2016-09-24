@@ -1,6 +1,7 @@
 package com.cjlyth.sousvide.api.controller;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ public class ConfigurationController {
 	public Configuration saveConfiguration(@RequestBody Configuration configuration) {
 		configuration.setDeviceId(configId);
 		configuration.setRunning(true);
+		configuration.setStartTime(new Date());
 		return configurationService.saveConfiguration(configuration);
 	}
 

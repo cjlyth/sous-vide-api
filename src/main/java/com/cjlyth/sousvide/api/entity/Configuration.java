@@ -11,7 +11,6 @@ import javax.persistence.Id;
 public class Configuration {
 	@Id private String deviceId;
 	private Double temperature;
-	private String scale;
 	private boolean running;
 	private Date startTime;
 	private Integer duration;
@@ -24,7 +23,6 @@ public class Configuration {
 	public Configuration(String deviceId, double temperature, String scale, Date startTime, int duration) {
 		this.deviceId = deviceId;
 		this.temperature = temperature;
-		this.scale = scale;
 		this.startTime = startTime;
 		this.duration = duration;
 	}
@@ -45,14 +43,6 @@ public class Configuration {
 
 	public void setTemperature(Double temperature) {
 		this.temperature = temperature;
-	}
-
-	public String getScale() {
-		return scale;
-	}
-
-	public void setScale(String scale) {
-		this.scale = scale;
 	}
 
 	public boolean isRunning() {

@@ -2,13 +2,14 @@
 
 Object to configure service from the client: 
 
+`https://sousvide.lyth.io/api/configuration`
+
 ```
 {
     start_time: 1474680122236,
     running: true,
 	duration: 90,
-	temperature: 155.0,
-	scale: "c"
+	temperature: 55.0
 }
 ```
 
@@ -16,10 +17,7 @@ Object to log temp data:
 
 ```
 {
-    cookDuration: 90,
-	fromTime: 1474680121236,
-	toTime: 1474680122236,
-	tempLog: [{
+	logs: [{
 		
 		tempValue: 155.0,
 		tempScale: "c",
@@ -47,6 +45,3 @@ sudo cp sousvide-api.jar /var/sousvide/sousvide-api.jar
 sudo systemctl restart sousvide
 ```
 
-One demo endpoint exists 
-
-https://sousvide.lyth.io/api/configuration
