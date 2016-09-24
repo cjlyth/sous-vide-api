@@ -20,13 +20,24 @@ public class ConfigurationController {
 	private ConfigurationService configurationService;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public void saveConfiguration(@RequestBody Configuration configuration) {
+	public Configuration saveConfiguration(@RequestBody Configuration configuration) {
 		configuration.setDeviceId(configId);
-		configurationService.saveConfiguration(configuration);
+		configuration.setRunning(true);
+		return configurationService.saveConfiguration(configuration);
+	}
+
+	@RequestMapping(method = RequestMethod.DELETE)
+	public void deleteConfiguration() {
+		configurationService.deleteConfiguration(configId);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Configuration getConfiguration() {
-		return configurationService.getConfiguration(configId);
+        Configuration config = configurationService.getConfiguration(configId);
+        if (null == config) {
+            config = new Configuration();
+            config.setDeviceId(configId);
+        }
+		return config;
 	}
 }

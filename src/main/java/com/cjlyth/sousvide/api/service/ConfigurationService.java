@@ -22,4 +22,7 @@ public class ConfigurationService {
 		return configurationDao.findOne(id);
 	}
 
+    public void deleteConfiguration(String configId) {
+		configurationDao.delete(configId);
+    }
 }
