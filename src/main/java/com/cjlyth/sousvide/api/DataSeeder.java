@@ -38,8 +38,6 @@ public class DataSeeder implements CommandLineRunner{
 		configurationDao.save(configurations);
 
 		logEntryDao.save(getTempLogs());
-		//tempLogEntryDao.save(getTempLogEntries());
-//		tempLogDao.save(getTempLogs());
 	}
 	
 	private List<LogEntry> getTempLogs() {

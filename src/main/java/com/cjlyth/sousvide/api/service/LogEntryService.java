@@ -16,7 +16,7 @@ import com.cjlyth.sousvide.api.dao.LogEntryDao;
 import com.cjlyth.sousvide.api.entity.LogEntry;
 
 @Service
-public class TempLogService {
+public class LogEntryService {
 	private Logger log = LoggerFactory.getLogger(getClass());
 	@Autowired
 	private LogEntryDao logEntryDao;

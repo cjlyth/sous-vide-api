@@ -1,6 +1,7 @@
 package com.cjlyth.sousvide.api.service;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,8 @@ public class ConfigurationService {
 	private ConfigurationDao configurationDao;
 	
 	public Configuration saveConfiguration(Configuration configuration) {
+		configuration.setRunning(true);
+		configuration.setStartTime(new Date());
 		return configurationDao.save(configuration);
 	}
 

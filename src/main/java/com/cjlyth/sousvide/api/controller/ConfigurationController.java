@@ -23,8 +23,6 @@ public class ConfigurationController {
 	@RequestMapping(method = RequestMethod.POST)
 	public Configuration saveConfiguration(@RequestBody Configuration configuration) {
 		configuration.setDeviceId(configId);
-		configuration.setRunning(true);
-		configuration.setStartTime(new Date());
 		return configurationService.saveConfiguration(configuration);
 	}
 
