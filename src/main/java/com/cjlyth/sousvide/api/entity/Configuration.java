@@ -1,7 +1,5 @@
 package com.cjlyth.sousvide.api.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,73 +8,92 @@ import javax.persistence.Id;
 @Entity
 public class Configuration {
 	@Id private String deviceId;
-	private Double temperature;
-	private String scale;
-	private boolean running;
-	private Date startTime;
-	private Integer duration;
+	private Double tempValue;
+	private String tempScale;
+	private Date timeStamp;
+	private Integer cookDuration;
 	
+	public Configuration(String deviceId, Double tempValue, String tempScale, Date timeStamp, Integer cookDuration) {
+		super();
+		this.deviceId = deviceId;
+		this.tempValue = tempValue;
+		this.tempScale = tempScale;
+		this.timeStamp = timeStamp;
+		this.cookDuration = cookDuration;
+	}
 
 	public Configuration() {
 		super();
 	}
 
-	public Configuration(String deviceId, double temperature, String scale, Date startTime, int duration) {
-		this.deviceId = deviceId;
-		this.temperature = temperature;
-		this.scale = scale;
-		this.startTime = startTime;
-		this.duration = duration;
-	}
-
-	@JsonProperty("id")
+	/**
+	 * @return the deviceId
+	 */
 	public String getDeviceId() {
 		return deviceId;
 	}
 
-	@JsonProperty("id")
+	/**
+	 * @param deviceId the deviceId to set
+	 */
 	public void setDeviceId(String deviceId) {
 		this.deviceId = deviceId;
 	}
 
-	public Double getTemperature() {
-		return temperature;
+	/**
+	 * @return the tempValue
+	 */
+	public Double getTempValue() {
+		return tempValue;
 	}
 
-	public void setTemperature(Double temperature) {
-		this.temperature = temperature;
+	/**
+	 * @param tempValue the tempValue to set
+	 */
+	public void setTempValue(Double tempValue) {
+		this.tempValue = tempValue;
 	}
 
-	public String getScale() {
-		return scale;
+	/**
+	 * @return the tempScale
+	 */
+	public String getTempScale() {
+		return tempScale;
 	}
 
-	public void setScale(String scale) {
-		this.scale = scale;
+	/**
+	 * @param tempScale the tempScale to set
+	 */
+	public void setTempScale(String tempScale) {
+		this.tempScale = tempScale;
 	}
 
-	public boolean isRunning() {
-		return running;
+	/**
+	 * @return the timeStamp
+	 */
+	public Date getTimeStamp() {
+		return timeStamp;
 	}
 
-	public void setRunning(boolean running) {
-		this.running = running;
+	/**
+	 * @param timeStamp the timeStamp to set
+	 */
+	public void setTimeStamp(Date timeStamp) {
+		this.timeStamp = timeStamp;
 	}
 
-	@JsonProperty("start_time")
-	public Date getStartTime() {
-		return startTime;
-	}
-	@JsonProperty("start_time")
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
+	/**
+	 * @return the cookDuration
+	 */
+	public Integer getCookDuration() {
+		return cookDuration;
 	}
 
-	public Integer getDuration() {
-		return duration;
+	/**
+	 * @param cookDuration the cookDuration to set
+	 */
+	public void setCookDuration(Integer cookDuration) {
+		this.cookDuration = cookDuration;
 	}
 
-	public void setDuration(Integer duration) {
-		this.duration = duration;
-	}
 }

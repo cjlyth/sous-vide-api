@@ -13,5 +13,7 @@ import com.cjlyth.sousvide.api.entity.TempLog;
 public interface TempLogDao extends JpaRepository<TempLog, Integer>{
 
 	public Collection<TempLog> findAllById(@Param("id") Integer id);
-	public Collection<TempLog> findAllByFromTimeAfterAndToTimeBefore(@Param("fromTime") Date fromTime, @Param("toTime") Date toTime);
+	
+	public Collection<TempLog> findAllByTimeBetween(@Param("fromTime") Date fromTime, @Param("toTime") Date toTime);
+
 }

@@ -13,73 +13,55 @@ import javax.persistence.OneToMany;
 @Entity
 public class TempLog {
 	@GeneratedValue(strategy= GenerationType.TABLE)
-	@Id private Integer id;
+	
+	@Id 
+	private Integer id;
 	private Integer cookDuration;
-	private Date fromTime;
-	private Date toTime;
-
-	@OneToMany(targetEntity=TempLogEntry.class, fetch= FetchType.EAGER)
-	private List<TempLogEntry> tempLogEntries;
-
-	public TempLog(Integer cookDuration, Date fromTime, Date toTime, List<TempLogEntry> tempLogEntries) {
-		super();
+	private String tempScale;
+	private double tempValue;
+	private Date time;
+	
+	public TempLog(Integer id, Integer cookDuration, String tempScale,
+			double tempValue, Date time) {
+		this.id = id;
 		this.cookDuration = cookDuration;
-		this.fromTime = fromTime;
-		this.toTime = toTime;
-		this.tempLogEntries = tempLogEntries;
+		this.tempScale = tempScale;
+		this.tempValue = tempValue;
+		this.time = time;
 	}
-
 	public TempLog() {
-		super();
 	}
-
-	/**
-	 * @return the cookDuration
-	 */
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public Integer getCookDuration() {
 		return cookDuration;
 	}
-
-	/**
-	 * @param cookDuration the cookDuration to set
-	 */
 	public void setCookDuration(Integer cookDuration) {
 		this.cookDuration = cookDuration;
 	}
-
-	/**
-	 * @return the fromTime
-	 */
-	public Date getFromTime() {
-		return fromTime;
+	public String getTempScale() {
+		return tempScale;
 	}
-
-	/**
-	 * @param fromTime the fromTime to set
-	 */
-	public void setFromTime(Date fromTime) {
-		this.fromTime = fromTime;
+	public void setTempScale(String tempScale) {
+		this.tempScale = tempScale;
 	}
-
-	/**
-	 * @return the toTime
-	 */
-	public Date getToTime() {
-		return toTime;
+	public double getTempValue() {
+		return tempValue;
 	}
-
-	/**
-	 * @param toTime the toTime to set
-	 */
-	public void setToTime(Date toTime) {
-		this.toTime = toTime;
+	public void setTempValue(double tempValue) {
+		this.tempValue = tempValue;
 	}
-
-	public List<TempLogEntry> getTempLogEntries() {
-		return tempLogEntries;
+	public Date getTime() {
+		return time;
 	}
-
-	public void setTempLogEntries(List<TempLogEntry> tempLogEntries) {
-		this.tempLogEntries = tempLogEntries;
+	public void setTime(Date time) {
+		this.time = time;
 	}
+	
+	
 }
+

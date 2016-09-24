@@ -38,6 +38,6 @@ public class TempLogController {
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/{fromTime}/{toTime}")
 	public Collection<TempLog> findAllByFromTimeAfterAndToTimeBefore(@PathVariable("fromTime") Date fromTime, @PathVariable("toTime") Date toTime) {
-		return tempLogService.findAllByFromTimeAfterAndToTimeBefore(fromTime, toTime);
+		return tempLogService.findAllByTimeBetween(fromTime, toTime);
 	}
 }

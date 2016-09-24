@@ -28,8 +28,8 @@ public class TempLogService {
 		return tempLogDao.findAllById(id);
 	}
 	
-	public Collection<TempLog> findAllByFromTimeAfterAndToTimeBefore(@Param("fromTime") Date fromTime, @Param("toTime") Date toTime) {
-		return tempLogDao.findAllByFromTimeAfterAndToTimeBefore(fromTime, toTime);
+	public Collection<TempLog> findAllByTimeBetween(@Param("fromTime") Date fromTime, @Param("toTime") Date toTime){
+		return tempLogDao.findAllByTimeBetween(fromTime, toTime);
 	}
 
 }
