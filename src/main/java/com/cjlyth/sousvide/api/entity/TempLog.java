@@ -3,22 +3,25 @@ package com.cjlyth.sousvide.api.entity;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class TempLog {
-
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	@Id private String id;
 	private Integer cookDuration;
 	private Date fromTime;
 	private Date toTime;
-	private List<TempLogEntry> tempLog;
 
-	public TempLog(Integer cookDuration, Date fromTime, Date toTime, List<TempLogEntry> tempLog) {
+	@OneToMany(targetEntity=TempLogEntry.class, fetch= FetchType.EAGER)
+	private List<TempLogEntry> tempLogEntries;
+
+	public TempLog(Integer cookDuration, Date fromTime, Date toTime, List<TempLogEntry> tempLogEntries) {
 		super();
 		this.cookDuration = cookDuration;
 		this.fromTime = fromTime;
 		this.toTime = toTime;
-		this.tempLog = tempLog;
+		this.tempLogEntries = tempLogEntries;
 	}
 
 	public TempLog() {
@@ -67,18 +70,11 @@ public class TempLog {
 		this.toTime = toTime;
 	}
 
-	/**
-	 * @return the tempLog
-	 */
-	public List<TempLogEntry> getTempLog() {
-		return tempLog;
+	public List<TempLogEntry> getTempLogEntries() {
+		return tempLogEntries;
 	}
 
-	/**
-	 * @param tempLog the tempLog to set
-	 */
-	public void setTempLog(List<TempLogEntry> tempLog) {
-		this.tempLog = tempLog;
+	public void setTempLogEntries(List<TempLogEntry> tempLogEntries) {
+		this.tempLogEntries = tempLogEntries;
 	}
-
 }
