@@ -14,16 +14,12 @@ public class ConfigurationService {
 	@Autowired
 	private ConfigurationDao configurationDao;
 	
-	public void saveConfiguration(Configuration configuration) {
-		configurationDao.save(configuration);
+	public Configuration saveConfiguration(Configuration configuration) {
+		return configurationDao.save(configuration);
 	}
 
-	public Collection<Configuration> findAllByDeviceId(String deviceId) {
-		return configurationDao.findAllByDeviceId(deviceId);
+	public Configuration getConfiguration(String id) {
+		return configurationDao.findOne(id);
 	}
 
-    public Collection<Configuration> findAll() {
-		return configurationDao.findAll();
-		//return Arrays.asList(new Configuration("1", 135.0, "c", new Date(), 90));
-	}
 }

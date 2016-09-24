@@ -15,22 +15,18 @@ import com.cjlyth.sousvide.api.service.ConfigurationService;
 @RestController
 @RequestMapping(value = "/configuration")
 public class ConfigurationController {
-	
+	private static String configId = "1";
 	@Autowired
 	private ConfigurationService configurationService;
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public void saveConfiguration(@RequestBody Configuration configuration) {
+		configuration.setDeviceId(configId);
 		configurationService.saveConfiguration(configuration);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public Collection<Configuration> findAll() {
-		return configurationService.findAll();
-	}
-
-	@RequestMapping(method = RequestMethod.GET, path = "/{deviceId}")
-	public Collection<Configuration> findAllByDeviceId(@PathVariable String deviceId) {
-		return configurationService.findAllByDeviceId(deviceId);
+	public Configuration getConfiguration() {
+		return configurationService.getConfiguration(configId);
 	}
 }
