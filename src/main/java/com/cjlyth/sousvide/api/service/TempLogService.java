@@ -32,7 +32,7 @@ public class TempLogService {
 	}
 
 	
-	public Collection<LogEntry> findAllByTimeBetween(@Param("fromTime") Date fromTime, @Param("toTime") Date toTime){
+	public Collection<LogEntry> findAllByTimeBetween(@Param("fromTime") Long fromTime, @Param("toTime") Long toTime){
 		return logEntryDao.findAllByTimestampBetween(fromTime, toTime);
 	}
 

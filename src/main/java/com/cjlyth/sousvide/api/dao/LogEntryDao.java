@@ -11,6 +11,6 @@ import com.cjlyth.sousvide.api.entity.LogEntry;
 
 @Repository
 public interface LogEntryDao extends JpaRepository<LogEntry, Long>{
-	Collection<LogEntry> findAllByTimestampBetween(@Param("fromTime") Date fromTime, @Param("toTime") Date toTime);
+	Collection<LogEntry> findAllByTimestampBetween(@Param("fromTime") Long fromTime, @Param("toTime") Long toTime);
 
 }

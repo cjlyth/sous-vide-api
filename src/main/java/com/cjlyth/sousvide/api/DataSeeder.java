@@ -44,7 +44,11 @@ public class DataSeeder implements CommandLineRunner{
 	
 	private List<LogEntry> getTempLogs() {
 		List<LogEntry> logEntries = new ArrayList<>();
-		logEntries.add(new LogEntry(System.currentTimeMillis(), 60.0));
+		Long startTime = System.currentTimeMillis();
+
+		logEntries.add(new LogEntry(startTime-100, 55.0));
+		logEntries.add(new LogEntry(startTime-50, 68.0));
+		logEntries.add(new LogEntry(startTime-25, 60.0));
 		return logEntries;
 	}
 }

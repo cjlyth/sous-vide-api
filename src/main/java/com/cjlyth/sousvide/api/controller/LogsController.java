@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang3.SystemUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.slf4j.Logger;
@@ -39,10 +40,10 @@ public class LogsController {
 		return retVal;
 	}
 
-	@RequestMapping(method = RequestMethod.GET, path = "/{fromTime}/{toTime}")
-	public Map<String, Collection<LogEntry>> findAllByFromTimeAfterAndToTimeBefore(@PathVariable("fromTime") Date fromTime, @PathVariable("toTime") Date toTime) {
+	@RequestMapping(method = RequestMethod.GET, path = "/{fromTime}")
+	public Map<String, Collection<LogEntry>> findAllByFromTimeAfterAndToTimeBefore(@PathVariable("fromTime") Long fromTime) {
 		Map<String, Collection<LogEntry>> retVal = new HashMap<>();
-		retVal.put("logs", tempLogService.findAllByTimeBetween(fromTime, toTime));
+		retVal.put("logs", tempLogService.findAllByTimeBetween(fromTime, Math.max(System.currentTimeMillis(), fromTime)));
 		return retVal;
 	}
 }
