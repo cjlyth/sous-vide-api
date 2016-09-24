@@ -17,4 +17,4 @@ target/
 .classpath
 .project
 .settings/
-sous-vide.db.log
+sous-vide.db*
