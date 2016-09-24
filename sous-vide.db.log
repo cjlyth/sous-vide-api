@@ -1,31 +1,9 @@
 /*C21*/SET SCHEMA PUBLIC
 drop table configuration if exists
 drop table hibernate_sequences if exists
-drop table temp_log if exists
-drop table temp_log_temp_log_entries if exists
-drop table temp_log_entry if exists
-create table configuration (device_id varchar(255) not null, duration integer, running boolean not null, scale varchar(255), start_time timestamp, temperature double, primary key (device_id))
+create table configuration (device_id varchar(255) not null, cook_duration integer, temp_scale varchar(255), temp_value double, time_stamp timestamp, primary key (device_id))
 create table hibernate_sequences (sequence_name varchar(255) not null, sequence_next_hi_value bigint, primary key (sequence_name))
-create table temp_log (id integer not null, cook_duration integer, from_time timestamp, to_time timestamp, primary key (id))
-create table temp_log_temp_log_entries (temp_log_id integer not null, temp_log_entries_id integer not null)
-create table temp_log_entry (id integer not null, temp_scale varchar(255), temp_value double, time_stamp bigint, primary key (id))
-alter table temp_log_temp_log_entries add constraint UK_2cjsvi8tpx5mlkw43p4h0j3k1 unique (temp_log_entries_id)
-alter table temp_log_temp_log_entries add constraint FK2xvvww4lr6fsp7u2kafke12wr foreign key (temp_log_entries_id) references temp_log_entry
-alter table temp_log_temp_log_entries add constraint FKaesdua5rqfeuf0adq1vu8mx8n foreign key (temp_log_id) references temp_log
-INSERT INTO CONFIGURATION VALUES('1',90,FALSE,'c','2016-09-24 13:58:44.386000',135.0E0)
-COMMIT
-/*C20*/SET SCHEMA PUBLIC
-INSERT INTO HIBERNATE_SEQUENCES VALUES('temp_log_entry',0)
-DELETE FROM HIBERNATE_SEQUENCES WHERE SEQUENCE_NAME='temp_log_entry'
-INSERT INTO HIBERNATE_SEQUENCES VALUES('temp_log_entry',1)
-COMMIT
-/*C21*/INSERT INTO TEMP_LOG_ENTRY VALUES(1,'c',130.5E0,1474743524)
-INSERT INTO TEMP_LOG_ENTRY VALUES(2,'c',140.7E0,1474743524)
-INSERT INTO TEMP_LOG_ENTRY VALUES(3,'c',150.5E0,1474743524)
-INSERT INTO TEMP_LOG_ENTRY VALUES(4,'c',160.3E0,1474743524)
-INSERT INTO TEMP_LOG_ENTRY VALUES(5,'f',170.5E0,1474743524)
-INSERT INTO TEMP_LOG_ENTRY VALUES(6,'f',180.2E0,1474743524)
-INSERT INTO TEMP_LOG_ENTRY VALUES(7,'f',190.0E0,1474743524)
-INSERT INTO TEMP_LOG_ENTRY VALUES(8,'f',200.5E0,1474743524)
-INSERT INTO TEMP_LOG_ENTRY VALUES(9,'f',210.0E0,1474743524)
+INSERT INTO CONFIGURATION VALUES('1',90,'c',135.0E0,'2016-09-24 15:32:02.196000')
+INSERT INTO CONFIGURATION VALUES('2',90,'c',134.6E0,'2016-09-24 15:32:02.197000')
+INSERT INTO CONFIGURATION VALUES('3',90,'c',133.9E0,'2016-09-24 15:32:02.197000')
 COMMIT

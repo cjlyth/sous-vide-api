@@ -21,9 +21,8 @@ public class TempLog {
 	private double tempValue;
 	private Date time;
 	
-	public TempLog(Integer id, Integer cookDuration, String tempScale,
-			double tempValue, Date time) {
-		this.id = id;
+	public TempLog(Integer cookDuration, String tempScale, double tempValue, Date time) {
+		//this.id = id;
 		this.cookDuration = cookDuration;
 		this.tempScale = tempScale;
 		this.tempValue = tempValue;
