@@ -15,18 +15,17 @@ Object to configure service from the client:
 
 Object to log temp data:
 
+`https://sousvide.lyth.io/api/logs`
+
 ```
 {
 	logs: [{
-		
-		tempValue: 155.0,
-		tempScale: "c",
-		time: 1474680122236
+		temperature: 155.0,
+		timestamp: 1474680122236
 	}, {
 		
-		tempValue: 155.0,
-		tempScale: "c",
-		time: 1474680121236
+		temperature: 155.0,
+		timestamp: 1474680121236
 	}]
 }
 ```
