@@ -31,3 +31,21 @@ Object to log temp data:
 	}]
 }
 ```
+
+To deploy:
+
+local
+```
+mvn package
+scp target/sousvide-api.jar sous-vide-api:
+```
+
+remote
+```
+sudo cp sousvide-api.jar /var/sousvide/sousvide-api.jar
+sudo systemctl restart sousvide
+```
+
+One demo endpoint exists 
+
+https://sousvide.lyth.io/api/configuration
