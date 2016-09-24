@@ -1,12 +1,14 @@
 package com.cjlyth.sousvide.api.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class TempLogEntry {
-	@Id
-	private String id;
+	@GeneratedValue(strategy= GenerationType.TABLE)
+	@Id private Integer id;
 
 	private Double tempValue;
 	private String tempScale;

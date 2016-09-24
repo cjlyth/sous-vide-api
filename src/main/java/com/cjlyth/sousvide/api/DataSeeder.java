@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.cjlyth.sousvide.api.dao.ConfigurationDao;
 import com.cjlyth.sousvide.api.dao.TempLogDao;
+import com.cjlyth.sousvide.api.dao.TempLogEntryDao;
 import com.cjlyth.sousvide.api.entity.Configuration;
 import com.cjlyth.sousvide.api.entity.TempLog;
 import com.cjlyth.sousvide.api.entity.TempLogEntry;
@@ -19,11 +20,13 @@ public class DataSeeder implements CommandLineRunner{
 
 	private ConfigurationDao configurationDao;
 	private TempLogDao tempLogDao;
+	private TempLogEntryDao tempLogEntryDao;
 	
 	@Autowired
-	public DataSeeder(ConfigurationDao configurationDao, TempLogDao tempLogDao) {
+	public DataSeeder(ConfigurationDao configurationDao, TempLogDao tempLogDao, TempLogEntryDao tempLogEntryDao) {
 		this.configurationDao = configurationDao;
 		this.tempLogDao = tempLogDao;
+		this.tempLogEntryDao = tempLogEntryDao;
 	}
 
 	@Override
@@ -36,7 +39,9 @@ public class DataSeeder implements CommandLineRunner{
 		
 		configurationDao.save(configurations);
 		
-		tempLogDao.save(getTempLogs());
+//		tempLogDao.save(getTempLogs());
+		tempLogEntryDao.save(getTempLogEntries());
+//		tempLogDao.save(getTempLogs());
 	}
 	
 	private List<TempLog> getTempLogs() {

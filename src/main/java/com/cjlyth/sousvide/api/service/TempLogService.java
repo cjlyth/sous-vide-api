@@ -1,8 +1,10 @@
 package com.cjlyth.sousvide.api.service;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import com.cjlyth.sousvide.api.dao.TempLogDao;
@@ -18,9 +20,16 @@ public class TempLogService {
 		return tempLogDao.findAll();
 	}
 	
-//	public Collection<TempLog> find
-	
-	public void saveTempLog(TempLog tempLog) {
+	public void save(TempLog tempLog) {
 		tempLogDao.save(tempLog);
 	}
+	
+	public Collection<TempLog> findAllById(@Param("id") Integer id) {
+		return tempLogDao.findAllById(id);
+	}
+	
+	public Collection<TempLog> findAllByFromTimeAfterAndToTimeBefore(@Param("fromTime") Date fromTime, @Param("toTime") Date toTime) {
+		return tempLogDao.findAllByFromTimeAfterAndToTimeBefore(fromTime, toTime);
+	}
+
 }
