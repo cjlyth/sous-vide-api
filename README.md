@@ -4,10 +4,11 @@ Object to configure service from the client:
 
 ```
 {
-	cookDuration: 90,
-	tempValue: 155.0,
-	tempScale: "c",
-	time: 1474680122236
+    start_time: 1474680122236,
+    running: true,
+	duration: 90,
+	temperature: 155.0,
+	scale: "c"
 }
 ```
 
