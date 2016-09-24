@@ -1,5 +1,8 @@
 package com.cjlyth.sousvide.api.entity;
 
+import javax.persistence.Entity;
+
+@Entity
 public class TempLogEntry {
 	private Double tempValue;
 	private String tempScale;

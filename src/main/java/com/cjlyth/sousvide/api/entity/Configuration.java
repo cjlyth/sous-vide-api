@@ -2,8 +2,12 @@ package com.cjlyth.sousvide.api.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Configuration {
-	private String deviceId;
+	@Id private String deviceId;
 	private Double tempValue;
 	private String tempScale;
 	private Date timeStamp;

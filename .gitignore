@@ -13,3 +13,7 @@ hs_err_pid*
 /sous-vide-api.ipr
 /sous-vide-api.iml
 bin/
+target/
+.classpath
+.project
+.settings/
