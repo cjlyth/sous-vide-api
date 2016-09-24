@@ -18,4 +18,9 @@ public class TempLogService {
 		return tempLogDao.findAll();
 	}
 	
+//	public Collection<TempLog> find
+	
+	public void saveTempLog(TempLog tempLog) {
+		tempLogDao.save(tempLog);
+	}
 }

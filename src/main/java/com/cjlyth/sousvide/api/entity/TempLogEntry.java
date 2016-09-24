@@ -10,9 +10,9 @@ public class TempLogEntry {
 
 	private Double tempValue;
 	private String tempScale;
-	private Integer timeStamp;
+	private Long timeStamp;
 	
-	public TempLogEntry(Double tempValue, String tempScale, Integer timeStamp) {
+	public TempLogEntry(Double tempValue, String tempScale, Long timeStamp) {
 		super();
 		this.tempValue = tempValue;
 		this.tempScale = tempScale;
@@ -50,15 +50,14 @@ public class TempLogEntry {
 	/**
 	 * @return the timeStamp
 	 */
-	public Integer getTimeStamp() {
+	public Long getTimeStamp() {
 		return timeStamp;
 	}
 	/**
 	 * @param timeStamp the timeStamp to set
 	 */
-	public void setTimeStamp(Integer timeStamp) {
+	public void setTimeStamp(Long timeStamp) {
 		this.timeStamp = timeStamp;
 	}
-	
 	
 }
