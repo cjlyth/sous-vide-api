@@ -25,7 +25,7 @@ public class ConfigurationService {
 	}
 
     public Collection<Configuration> findAll() {
-		//TODO: implement
-		return Arrays.asList(new Configuration("1", 135.0, "c", new Date(), 90));
+		return configurationDao.findAll();
+		//return Arrays.asList(new Configuration("1", 135.0, "c", new Date(), 90));
 	}
 }
