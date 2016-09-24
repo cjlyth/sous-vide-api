@@ -24,6 +24,11 @@ public class ConfigurationController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
+	public Collection<Configuration> findAll() {
+		return configurationService.findAll();
+	}
+
+	@RequestMapping(method = RequestMethod.GET, path = "/{deviceId}")
 	public Collection<Configuration> findAllByDeviceId(@PathVariable String deviceId) {
 		return configurationService.findAllByDeviceId(deviceId);
 	}

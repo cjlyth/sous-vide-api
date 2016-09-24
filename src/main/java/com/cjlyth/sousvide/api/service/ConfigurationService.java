@@ -1,6 +1,8 @@
 package com.cjlyth.sousvide.api.service;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,5 +22,10 @@ public class ConfigurationService {
 
 	public Collection<Configuration> findAllByDeviceId(String deviceId) {
 		return configurationDao.findAllByDeviceId(deviceId);
+	}
+
+    public Collection<Configuration> findAll() {
+		//TODO: implement
+		return Arrays.asList(new Configuration("1", 135.0, "c", new Date(), 90));
 	}
 }
