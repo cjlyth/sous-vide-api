@@ -26,6 +26,12 @@ public class LogEntryService {
 	}
 	
 	public void save(LogEntry logEntry) {
+		if (null == logEntry) {
+			return;
+		}
+		if (logEntry.getTemperature() < 1) {
+			return;
+		}
 		logEntry.setTimestamp(System.currentTimeMillis());
 		log.debug(ToStringBuilder.reflectionToString(ToStringStyle.MULTI_LINE_STYLE));
 		logEntryDao.save(logEntry);
