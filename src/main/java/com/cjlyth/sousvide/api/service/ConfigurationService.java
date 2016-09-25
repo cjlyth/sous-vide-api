@@ -22,6 +22,7 @@ public class ConfigurationService {
 	public Configuration saveConfiguration(Configuration configuration) {
 		configuration.setRunning(true);
 		configuration.setStartTime(new Date());
+		logEntryDao.deleteAll();
 		return configurationDao.save(configuration);
 	}
 
