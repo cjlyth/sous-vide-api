@@ -3,6 +3,7 @@ package com.cjlyth.sousvide.api.service;
 import java.util.Collection;
 import java.util.Date;
 
+import com.cjlyth.sousvide.api.dao.LogEntryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,9 @@ public class ConfigurationService {
 
 	@Autowired
 	private ConfigurationDao configurationDao;
+
+	@Autowired
+	private LogEntryDao logEntryDao;
 	
 	public Configuration saveConfiguration(Configuration configuration) {
 		configuration.setRunning(true);
@@ -27,5 +31,6 @@ public class ConfigurationService {
 
     public void deleteConfiguration(String configId) {
 		configurationDao.delete(configId);
+		logEntryDao.deleteAll();
     }
 }
